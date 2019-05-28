@@ -55,3 +55,6 @@ var App = function App() {
 
 - When referring to styling, JSX has traditionally used `className` instead of `class`, though reasons for this are just legacy at this point
 - JSX can access Javascript properties using curly-brackets:
+  - If wanting to access JS **Objects** within JSX, they need to either be:
+    - Referred explicitly if wanting to retreive their value (e.g. someObject.foo)
+    - Assigned to another property (e.g. className = someObject)

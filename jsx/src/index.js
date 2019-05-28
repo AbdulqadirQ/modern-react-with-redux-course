@@ -1,18 +1,18 @@
 import React from "react"; // imports react and assigns it to the VARIABLE 'React'
 import ReactDOM from "react-dom";
 
-function getButtonText() {
-    return 'Click on me!';
-}
-
 const App = () => {
+    const buttonText = { text: 'Click me' }; // JSX can only print out 'text' if referring to it explicitly
+    const style = {backgroundColor: 'blue', color: 'white'}; // JSX can assign whole JS objects to properties eg. style
     return (
         <div>
             <label className="label" for="name">
                 Enter name:
             </label>
             <input id="name" type="text" />
-            <button style={{backgroundColor: 'blue', color: 'white'}}>{getButtonText()}</button>
+            <button style={style}>
+                {buttonText.text}
+            </button>
         </div>
     );
 };
