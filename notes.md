@@ -74,3 +74,11 @@ var App = function App() {
   - copy https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js
   - Add the following line inside <head> of index.html:
     - <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+
+## Fake Data / Assets Generation:
+- https://github.com/marak/Faker.js/ can be used to generate fake data and images
+- To use within a react project:
+  - `npm install --save faker` -> installs but also adds the module to package.json for future need
+  - `import faker from 'faker';`
+  - See documentation and use as a 'path' to generating the required data, e.g.<img alt="avatar" src={faker.image.avatar()}/>
+  - NOTE: ensure the final string is given () to signify a method call
