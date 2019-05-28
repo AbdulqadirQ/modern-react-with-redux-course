@@ -66,3 +66,11 @@ var App = function App() {
 - Component Nesting: a component can be shown inside of each other
 - Component Re-usability: components should be easily re-usable
 - Component Configuration: components should be customisable when they're created (when re-using components)
+
+## Free CSS Styling from Semantic
+- semantic-ui.com offers free css styles for common components
+- To use these:
+  - https://cdnjs.com/libraries/semantic-ui
+  - copy https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js
+  - Add the following line inside <head> of index.html:
+    - <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
