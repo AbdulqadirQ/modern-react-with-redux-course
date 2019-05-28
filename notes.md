@@ -82,3 +82,10 @@ var App = function App() {
   - `import faker from 'faker';`
   - See documentation and use as a 'path' to generating the required data, e.g.<img alt="avatar" src={faker.image.avatar()}/>
   - NOTE: ensure the final string is given () to signify a method call
+
+## Creating a Re-usable and Configurable Component:
+- Identify the JSX that appears to be duplicated
+- What is the purpose of that block of JSX? Think of a descriptive name for what it does
+- Create a new file to house this new component - it should have the same name as the component
+- Create a new component in the new file, paste the JSX into it
+- Make the new component configurable by using React's 'props' system
