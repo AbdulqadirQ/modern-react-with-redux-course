@@ -58,3 +58,11 @@ var App = function App() {
   - If wanting to access JS **Objects** within JSX, they need to either be:
     - Referred explicitly if wanting to retreive their value (e.g. someObject.foo)
     - Assigned to another property (e.g. className = someObject)
+
+
+# Communicating with Props
+
+## Three Tenets of Components
+- Component Nesting: a component can be shown inside of each other
+- Component Re-usability: components should be easily re-usable
+- Component Configuration: components should be customisable when they're created (when re-using components)
