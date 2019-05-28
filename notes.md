@@ -89,3 +89,11 @@ var App = function App() {
 - Create a new file to house this new component - it should have the same name as the component
 - Create a new component in the new file, paste the JSX into it
 - Make the new component configurable by using React's 'props' system
+
+## props.children
+- `props.children` contains any properties passed through a component. This can be used to pass through components within other components, e.g:
+```js
+<ApprovalCard>
+    <CommentDetail image={faker.image.avatar()} author="Bob ross" date="Today at 16:44pm" content="nice paints"/>
+</ApprovalCard>
+```
