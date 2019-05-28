@@ -7,6 +7,14 @@ import ApprovalCard from './ApprovalCard';
 const App = () => {
     return (
         <div className="ui container comments">
+
+            <ApprovalCard>
+                <div>
+                    <h1>Warning!</h1>
+                    Are you sure you want to do this?
+                </div>
+            </ApprovalCard>
+
             <ApprovalCard>
                 <CommentDetail image={faker.image.avatar()} author="Bob ross" date="Today at 16:44pm" content="nice paints"/>
             </ApprovalCard>
