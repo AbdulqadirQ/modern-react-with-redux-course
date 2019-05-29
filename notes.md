@@ -119,3 +119,23 @@ window.navigator.geolocation.getCurrentPosition(
   - State can **only** be updated using the function `setState`
 
 ![](notes_images/state-app_lifecycle_walkthrough.PNG)
+
+# Lifecycle Methods:
+
+![](notes_images/component_lifecycle.PNG)
+
+- constructor:
+  - automatically called when a new instance of the component is created
+  - can be used for initial data loading
+- render:
+  - is **NOT-OPTIONAL** -> is called directly after Constructor
+  - should only render and return JSX and nothing else
+- componentDidMount:
+  - is called (only once) when this component is first rendered onto the screen
+  - can be used for initial data loading -> **PREFERRED** to data load using this instead of 'constructor' out of convention
+- componentDidUpdate:
+  - is called automatically every time the component updates itself (either state updates or new props are passed in)
+  - can be used for data loading for every update the would occur
+- componentWillUnmount:
+  - is called (only once) when component is stopped to be rendered on the screen
+  - used for clean-up
