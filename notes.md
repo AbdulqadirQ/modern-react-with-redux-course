@@ -155,6 +155,9 @@ constructor(props) {
 ```
 
 # Event Handling
+
+## Creating an Event Handler
+
 - Event listeners can be added to allow user input
 - This is done with 2 parts:
   - A property on an HTML component which detects if a change has occurred (and calls the listener method)
@@ -175,3 +178,11 @@ render() {
 ```
 - NOTE: `onInputChange` is called **without** brackets. This means it will only be executed if `onChange` is satisfied (i.e. there is a text added to the input box).
 - NOTE 2: `onInputChange()` called **with** brackets will be executed every time `render()` is executed.
+
+
+## Controlled vs Uncontrolled Elements
+- An element is **uncontrolled** when we don't know the value of the element unless we pulled out the value from the DOM (i.e where it's been rendered on the page)
+- An element is **controlled** when we know the value of the element since we've stored it within state
+
+- **Information shouldn't be stored inside of our HTML elements (in the DOM) - instead we want to centralise all data within the 'React side' and inside state**
+
