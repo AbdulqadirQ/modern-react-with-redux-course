@@ -97,3 +97,15 @@ var App = function App() {
     <CommentDetail image={faker.image.avatar()} author="Bob ross" date="Today at 16:44pm" content="nice paints"/>
 </ApprovalCard>
 ```
+
+
+# Class-based Components
+
+## Retrieving a User's Geolocation:
+- see https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
+```js
+window.navigator.geolocation.getCurrentPosition(
+    position => console.log(position), // SUCCESS CASE CALLBACK
+    err => console.log(err) // FAILURE CASE CALLBACK
+);
+```
