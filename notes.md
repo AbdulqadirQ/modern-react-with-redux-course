@@ -117,3 +117,5 @@ window.navigator.geolocation.getCurrentPosition(
   - Updating State causes the component to (almost) instantly render
   - State must be initialized when a component is created
   - State can **only** be updated using the function `setState`
+
+![](notes_images/state-app_lifecycle_walkthrough.PNG)
