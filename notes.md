@@ -109,3 +109,11 @@ window.navigator.geolocation.getCurrentPosition(
     err => console.log(err) // FAILURE CASE CALLBACK
 );
 ```
+
+## State:
+- Rules of State:
+  - Only usable with class components (although can be used within functional components through hooks)
+  - State is a JS object that contains data relevant to a singular component
+  - Updating State causes the component to (almost) instantly render
+  - State must be initialized when a component is created
+  - State can **only** be updated using the function `setState`
