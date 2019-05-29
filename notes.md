@@ -139,3 +139,17 @@ window.navigator.geolocation.getCurrentPosition(
 - componentWillUnmount:
   - is called (only once) when component is stopped to be rendered on the screen
   - used for clean-up
+
+## State and Constructor
+- state can be defined without a Constructor in ES6. Babel then converts it to ES5 syntax without the need for us to explicitly define it, i.e:
+
+```js
+state = { lat: null, errorMessage: '' };
+```
+is equal to:
+```js
+constructor(props) {
+    super(props);
+    this.state = { lat: null, errorMessage: '' };
+}
+```
