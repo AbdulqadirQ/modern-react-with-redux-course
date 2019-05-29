@@ -153,3 +153,25 @@ constructor(props) {
     this.state = { lat: null, errorMessage: '' };
 }
 ```
+
+# Event Handling
+- Event listeners can be added to allow user input
+- This is done with 2 parts:
+  - A property on an HTML component which detects if a change has occurred (and calls the listener method)
+  - A listener method which is called by an HTML component
+
+e.g:
+
+```js
+onInputChange() {
+    // code which does something
+}
+render() {
+    return (
+        <input type="text" onChange={this.onInputChange}/>
+    )
+}
+
+```
+- NOTE: `onInputChange` is called **without** brackets. This means it will only be executed if `onChange` is satisfied (i.e. there is a text added to the input box).
+- NOTE 2: `onInputChange()` called **with** brackets will be executed every time `render()` is executed.
