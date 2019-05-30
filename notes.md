@@ -154,6 +154,125 @@ constructor(props) {
 }
 ```
 
+# Javascript 'this'
+
+## Problem caused by this:
+
+- Using `this` inside of a class would refer to a class object. e.g:
+```js
+class SearchBar {
+    onFormSubmit(){
+        // some code
+    }
+
+    render() {
+        return (
+            <div>
+                <form onSubmit={this.onFormSubmit}> // 'this' refers to 'SearchBar'
+                </form>
+            </div>
+        )
+    }
+}
+```
+- No matter where in the class, `this` will always refer to the class itself EXCEPT when used within a function of the class.
+- When `this` is used within a function, it refers to the object on which the function was called, e.g:
+```js
+class Car {
+    setDriveSound(sound) {
+        this.sound = sound;
+    }
+
+    drive() {
+        return this.sound;
+    }
+}
+const car = new Car();
+car.setDriveSound('vroom'); // `setDriveSound()` is called on an object of Car, therefore `this` refers to Car (Car.setDriveSound)
+car.drive(); //`drive()` is called on the object '
+```
+- for `car.setDriveSound()`: `this` within `setDriveSound()` would refer to `car`
+- for `car.drive()`: `this` within `drive()` would refer to `car`
+- The output of the above is 'vroom'
+
+
+## Solutions:
+
+### 1 - Bind:
+```js
+class Car {
+  constructor () {
+    this.drive = this.drive.bind(this);
+  }
+
+	setDriveSound(sound) {
+   this.sound = sound;
+  }
+
+  drive() {
+   return this.sound;
+  }
+}
+
+const car = new Car();
+car.setDriveSound('vroom');
+
+const drive = car.drive;
+drive()
+```
+- A constructor is added and binds `this` to `drive()`
+- We're therefore explicitly ensuring that whenever `this` is used within `drive()` method, it refers to `Car`
+- `this.drive = this.drive.bind(this)` -> overwrites `this.drive` to equal `this.drive.bind(Car)`
+
+
+### 2 - Arrow Bind:
+- Originally:
+```js
+class SearchBar extends React.Component {
+    state = { term: '' };
+
+    onFormSubmit(event) {
+        console.log(this.state.term);
+    }
+}
+```
+
+- After Fix:
+```js
+class SearchBar extends React.Component {
+    state = { term: '' };
+
+    onFormSubmit = (event) => {
+        console.log(this.state.term);
+    }
+}
+```
+- `onFormSubmit` is now an arrow function. This automatically binds `this` used within the function to `SearchBar`
+
+
+### 3 - Specifying Arrow Bind directly within Handler:
+
+```js
+class SearchBar extends React.Component {
+    state = { term: '' };
+
+    onFormSubmit(event) {
+        console.log(this.state.term);
+    }
+
+    render() {
+        return (
+            <div className="ui segment">
+                <form onSubmit={(event) => this.onFormSubmit(event)}>
+                </form>
+            </div>
+        );
+    };
+}
+```
+- Above we specify an Arrow Bind inline where it needs to be
+- `(event)` invokes `this.onFormSubmit(event)` only once during a submit. `this` in this instance is correctly referred to the class (i.e. `SearchBar`)
+
 # Event Handling
 
 ## Creating an Event Handler
