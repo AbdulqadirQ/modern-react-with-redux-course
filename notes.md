@@ -305,3 +305,9 @@ render() {
 
 - **Information shouldn't be stored inside of our HTML elements (in the DOM) - instead we want to centralise all data within the 'React side' and inside state**
 
+
+
+# Making API Requests:
+- React is only used for showing HTML back to the user. As a result, different libraries are used when making requests. The two most popular are:
+  - axios: is much easier to use
+  - fetch: is built into most browsers therefore doesn't require extra dependencies
