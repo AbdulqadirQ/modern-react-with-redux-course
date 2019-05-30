@@ -6,8 +6,8 @@ class SearchBar extends React.Component {
     onFormSubmit = (event) => { // 'binds' to ensure whenever `this` is used, it always refers to SearchBar
         event.preventDefault(); // prevents form being submitted (and consequently page refreshing)
 
-        console.log(this.state.term);
-    }
+        this.props.onSubmit(this.state.term);
+    };
 
     render() {
         return (
