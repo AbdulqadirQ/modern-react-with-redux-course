@@ -327,3 +327,43 @@ onSearchSubmit(term) {
   - Developer console -> Network -> ensure 'All' is selected
   - Send a request and the window should populate
   - click on one which contains a 'GET' method -> Preview to view the data
+
+## Axios:
+
+- There are two methods of dealing with asynchronous requests:
+### Promises: An older version:
+- Whenever a request is made with Axios, it returns an object called a 'Promise'
+- A Promise returns a 'notification' when some amount of work is completed
+- The Promise is passed an arrow function which is invoked with whatever data that was returned from the request
+- This method can be used for getting a response from an asynchronous request
+
+```js
+onSearchSubmit(term) {
+    axios.get('https://api.unsplash.com/search/photos', {
+        params: { query: term },
+        headers: {
+            Authorization: 'Client-ID 8f963700517eb3bed42120eef3cb86dbe68052ea1f6cb81797e1a4761195e9cb'
+        }
+    }).then( resp => { // The request's response is stored within 'resp' once it comes in
+        console.log(resp.data.results);
+    });
+}
+```
+
+### async / await: A newer version:
+- Use of `async` and `await` keywords.
+- The function is defined as asynchronous using `async`
+- The request is defined with `await` and returns a response, which can then be used elsewhere
+
+```js
+async onSearchSubmit(term) {
+    const response = await axios.get('https://api.unsplash.com/search/photos', {
+        params: { query: term },
+        headers: {
+            Authorization: 'Client-ID 8f963700517eb3bed42120eef3cb86dbe68052ea1f6cb81797e1a4761195e9cb'
+        }
+    });
+
+    console.log(response.data.results);
+}
+```
