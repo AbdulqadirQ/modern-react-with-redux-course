@@ -311,3 +311,19 @@ render() {
 - React is only used for showing HTML back to the user. As a result, different libraries are used when making requests. The two most popular are:
   - axios: is much easier to use
   - fetch: is built into most browsers therefore doesn't require extra dependencies
+
+- Axios example using unsplash API:
+```js
+onSearchSubmit(term) {
+    axios.get('https://api.unsplash.com/search/photos', {
+        params: { query: term },
+        headers: {
+            Authorization: 'Client-ID 8f963700517eb3bed42120eef3cb86dbe68052ea1f6cb81797e1a4761195e9cb'
+        }
+    });
+}
+```
+- NOTE: to view requests:
+  - Developer console -> Network -> ensure 'All' is selected
+  - Send a request and the window should populate
+  - click on one which contains a 'GET' method -> Preview to view the data
