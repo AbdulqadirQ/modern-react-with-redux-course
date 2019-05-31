@@ -368,8 +368,27 @@ async onSearchSubmit(term) {
 }
 ```
 
-# Keys and Use of Lists
+# Keys, Use of Lists and Arrays
 - Keys are good for performance
 - Using maps and such without specifying a unique ID for each element within the array would result in React outputting 'Warnings' about this within the console
 - While rendering content to the DOM, react compares the content of a component about to be rendered with already-rendered content within the DOM. This is quite slow to do.
 - If assigning components an ID, react only has to match the IDs between about-to-be-rendered and already-rendered elements. (NOTE: IDs are, at this point, called keys). This is much faster
+
+## Destructuring Arrays:
+- Destructuring was introduced within ES6 and allows assigning the properties of an array/object to variables:
+e.g: `var [first, second, third] = someArray;` instead of:
+
+```js
+var first = someArray[0];
+var second = someArray[1];
+var third = someArray[2];
+```
+
+### Also you can use destructuring in a function's parameter list:
+```js
+    const images = props.images.map(({id, description, urls}) => {
+        return <img key={id} alt={description} src={urls.regular} />
+    } )
+```
+- Here `props.images` is an array of images. Each image contains various properties INCLUDING `id`, `description` and `urls`
+- Destructuring here allows these properties (spelled exactly how they appear inside each image) to be extracted and used without explicitly defining `image.id`, `image.description` or `image.urls`
