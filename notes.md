@@ -367,3 +367,9 @@ async onSearchSubmit(term) {
     console.log(response.data.results);
 }
 ```
+
+# Keys and Use of Lists
+- Keys are good for performance
+- Using maps and such without specifying a unique ID for each element within the array would result in React outputting 'Warnings' about this within the console
+- While rendering content to the DOM, react compares the content of a component about to be rendered with already-rendered content within the DOM. This is quite slow to do.
+- If assigning components an ID, react only has to match the IDs between about-to-be-rendered and already-rendered elements. (NOTE: IDs are, at this point, called keys). This is much faster
